@@ -18,7 +18,6 @@ function App() {
           {user ? <Route path="/myBlogs" component={MyBlogs} /> : null}
           {user ? <Route path="/addBlog" component={AddBlog} /> : null}
           {user ? <Route path="/blogs" component={Blogs} /> : null}
-          {/* <Route path="/addBlog" component={AddBlog} /> */}
         </Switch>
       </Router>
     </>

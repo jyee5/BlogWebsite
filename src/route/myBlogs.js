@@ -25,7 +25,6 @@ function MyBlogs() {
   return (
     <>
       <DogNav />
-
       <div className="background">
         <div className="title">
           <h1 className="text-center">My Blogs</h1>

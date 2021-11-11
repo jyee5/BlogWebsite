@@ -5,8 +5,6 @@ import { SignIn, useAuthentication } from "../service/authService"
 
 function Home() {
   const user = useAuthentication()
-  console.log(user)
-
   return (
     <>
       <DogNav />

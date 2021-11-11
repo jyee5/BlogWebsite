@@ -8,7 +8,6 @@ import { auth, storage } from "../firebaseConfig"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { AddBlogDb } from "../service/blogService"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
-// import { storage } from "./firebase/firebase";
 
 function AddBlog() {
   const [validated, setValidated] = useState(false)
@@ -21,9 +20,7 @@ function AddBlog() {
   }
 
   const handleFireBaseUpload = e => {
-    // e.preventDefault();
     console.log("start of upload")
-    // async magic goes here...
     if (imageAsFile === "") {
       console.error(`not an image, the image file is a ${typeof imageAsFile}`)
       return
@@ -46,7 +43,7 @@ function AddBlog() {
         }
       },
       error => {
-        // Handle unsuccessful uploads
+        console.log(error)
       },
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
@@ -56,9 +53,8 @@ function AddBlog() {
     )
   }
 
-  const handleSubmit = event => {
+  const formSubmit = event => {
     handleFireBaseUpload(event)
-
     const form = event.currentTarget
     event.preventDefault()
     if (form.checkValidity() === false) {
@@ -90,7 +86,7 @@ function AddBlog() {
           <h1 className="text-center">Add a New Blog</h1>
         </div>
         <div className="smallerForm">
-          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+          <Form noValidate validated={validated} onSubmit={formSubmit}>
             <Form.Group className="mb-3 mt-5 text-md" controlId="title">
               <Form.Label className="h4">Title</Form.Label>
               <Form.Control type="text" placeholder="Where's my bone" required />
