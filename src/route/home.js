@@ -1,11 +1,11 @@
-import React from "react";
-import "../App.css";
-import DogNav from "./dog-navbar";
-import { SignIn, useAuthentication } from "../service/authService";
+import React from "react"
+import "../App.css"
+import DogNav from "./dog-navbar"
+import { SignIn, useAuthentication } from "../service/authService"
 
 function Home() {
-  const user = useAuthentication();
-  console.log(user);
+  const user = useAuthentication()
+  console.log(user)
 
   return (
     <>
@@ -18,14 +18,14 @@ function Home() {
           <div className="description">
             <h1>Home</h1>
             <h3>
-              This blog is for dogs to discuss their daily lives and to let
-              their other doggie friends brag about things that they have done.
+              This blog is for dogs to discuss their daily lives and to let their other
+              doggie friends brag about things that they have done.
             </h3>
             {!user ? (
               <h4>
                 <br></br>
                 To view blogs
-                <div className="dark">
+                <div>
                   <SignIn />
                 </div>
               </h4>
@@ -36,7 +36,7 @@ function Home() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home

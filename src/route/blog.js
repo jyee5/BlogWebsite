@@ -1,39 +1,39 @@
-import React, { useState } from "react";
-import "../App.css";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import { FaTrash } from "react-icons/fa";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import { DeleteBlogDb } from "../service/blogService";
-import { ref, getDownloadURL } from "firebase/storage";
-import { storage } from "../firebaseConfig";
+import React, { useState } from "react"
+import "../App.css"
+import Row from "react-bootstrap/Row"
+import Container from "react-bootstrap/Container"
+import { FaTrash } from "react-icons/fa"
+import Col from "react-bootstrap/Col"
+import Button from "react-bootstrap/Button"
+import { DeleteBlogDb } from "../service/blogService"
+import { ref, getDownloadURL } from "firebase/storage"
+import { storage } from "../firebaseConfig"
 
 function Blog(prop) {
-  const title = prop.title;
-  const body = prop.body;
-  const date = prop.date.toDate().toDateString();
-  const author = prop.author;
-  const imgLocation = prop.image;
-  const [imageHttp, setImageHttp] = useState("");
+  const title = prop.title
+  const body = prop.body
+  const date = prop.date.toDate().toDateString()
+  const author = prop.author
+  const imgLocation = prop.image
+  const [imageHttp, setImageHttp] = useState("")
   function deleteBlog() {
-    DeleteBlogDb(prop.id);
+    DeleteBlogDb(prop.id)
   }
-  const imageRef = ref(storage, imgLocation);
+  const imageRef = ref(storage, imgLocation)
   getDownloadURL(imageRef)
-    .then((url) => {
-      const xhr = new XMLHttpRequest();
-      xhr.responseType = "blob";
-      xhr.onload = (event) => {
-        const blob = xhr.response;
-      };
-      xhr.open("GET", url);
-      xhr.send();
-      setImageHttp(url);
+    .then(url => {
+      const xhr = new XMLHttpRequest()
+      xhr.responseType = "blob"
+      xhr.onload = event => {
+        const blob = xhr.response
+      }
+      xhr.open("GET", url)
+      xhr.send()
+      setImageHttp(url)
     })
-    .catch((error) => {
-      console.log(error);
-    });
+    .catch(error => {
+      console.log(error)
+    })
   return (
     <>
       <div className="smallerForm">
@@ -68,11 +68,10 @@ function Blog(prop) {
             </Col>
           </Row>
         </Container>
-
         <hr className="mt-5"></hr>
       </div>
     </>
-  );
+  )
 }
 
-export default Blog;
+export default Blog

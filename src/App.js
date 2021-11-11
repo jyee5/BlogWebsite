@@ -1,14 +1,14 @@
-import "./App.css";
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./route/home.js";
-import MyBlogs from "./route/myBlogs.js";
-import AddBlog from "./route/addBlog.js";
-import Blogs from "./route/blogs.js";
-import { useAuthentication } from "./service/authService";
+import "./App.css"
+import React from "react"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import Home from "./route/home.js"
+import MyBlogs from "./route/myBlogs.js"
+import AddBlog from "./route/addBlog.js"
+import Blogs from "./route/blogs.js"
+import { useAuthentication } from "./service/authService"
 
 function App() {
-  const user = useAuthentication();
+  const user = useAuthentication()
   return (
     <>
       <Router>
@@ -22,7 +22,7 @@ function App() {
         </Switch>
       </Router>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

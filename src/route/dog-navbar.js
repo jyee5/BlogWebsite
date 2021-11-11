@@ -1,11 +1,11 @@
-import React from "react";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-import { SignIn, SignOut, useAuthentication } from "../service/authService";
+import React from "react"
+import Nav from "react-bootstrap/Nav"
+import Navbar from "react-bootstrap/Navbar"
+import Container from "react-bootstrap/Container"
+import { SignIn, SignOut, useAuthentication } from "../service/authService"
 
 function DogNav() {
-  const user = useAuthentication();
+  const user = useAuthentication()
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -28,7 +28,7 @@ function DogNav() {
         </Container>
       </Navbar>
     </>
-  );
+  )
 }
 
-export default DogNav;
+export default DogNav
